@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Blazor Learning Journey</title>
+    
+    <!-- Placeholder Comments -->
+    <!-- Chosen Palette: Calm Journey -->
+    <!-- Application Structure Plan: The SPA is designed as a vertical learning path, breaking the source list into three distinct, themed sections (Foundations, Exercises, Story). This journey-based structure, using interactive cards instead of a flat list, is more intuitive for a learning guide. It visually guides the user from theory to practice, enhancing comprehension and engagement. Each card is a self-contained unit with added context, making the path clear and user-friendly. -->
+    <!-- Visualization & Content Choices: Source Info: List of Blazor articles. -> Goal: Inform & Organize. -> Viz/Presentation: Interactive HTML/CSS cards in themed sections. -> Interaction: Cards have hover effects and contain the article title, a new summary for context, and a direct link. -> Justification: Cards provide better information hierarchy and context than a simple list of links. The visual separation of sections clarifies the learning flow. -> Library/Method: HTML and Tailwind CSS. -> CONFIRMATION: NO SVG/Mermaid. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* slate-50 */
+        }
+        .card {
+            background-color: white;
+            border-radius: 0.75rem; /* rounded-xl */
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        }
+        .card-icon {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+        .section-intro {
+            max-width: 42rem; /* prose-lg */
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body class="text-slate-800">
+
+    <div class="mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8">
+        
+        <!-- Header -->
+        <header class="text-center mb-16">
+            <h1 class="text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">
+                Your Blazor Learning Journey
+            </h1>
+            <p class="mt-6 text-lg leading-8 text-slate-600">
+                An interactive guide to mastering Blazor. Start with the fundamentals, apply your knowledge with hands-on exercises, and see it all come together.
+            </p>
+        </header>
+
+        <main class="space-y-16">
+
+            <!-- Section 1: Foundation -->
+            <section id="foundation">
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl font-bold tracking-tight text-slate-900">
+                        1. Foundation & Evolution
+                    </h2>
+                    <p class="mt-4 text-md leading-7 text-slate-600 section-intro">
+                        This section provides the essential theoretical background for your journey. You'll learn what Blazor is, how it fits into the .NET ecosystem by understanding its evolution, and the different hosting models available. Grasping these core concepts is the first step to building powerful web applications.
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+                    <a href="https://learndotnetwithraushan.blogspot.com/2025/06/blazor-building-web-apps-with-c.html" target="_blank" rel="noopener noreferrer" class="card block p-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="card-icon bg-blue-100 text-blue-600">&#x1F4DA;</div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-slate-900">Introduction to Blazor</h3>
+                                <p class="mt-1 text-slate-600">Start here. Get a high-level overview of what Blazor is and how it enables building interactive web UIs with C#.</p>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="https://learndotnetwithraushan.blogspot.com/2025/06/evolution-of-aspnet-from-web-forms-to.html" target="_blank" rel="noopener noreferrer" class="card block p-6">
+                         <div class="flex items-start space-x-4">
+                            <div class="card-icon bg-blue-100 text-blue-600">&#x1F321;&#xFE0F;</div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-slate-900">Evolution of ASP.NET</h3>
+                                <p class="mt-1 text-slate-600">Understand the context. See how Blazor evolved from previous ASP.NET technologies like Web Forms and MVC.</p>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="https://learndotnetwithraushan.blogspot.com/2025/06/blazor-server-vs-blazor-webassembly-vs.html" target="_blank" rel="noopener noreferrer" class="card block p-6">
+                         <div class="flex items-start space-x-4">
+                            <div class="card-icon bg-blue-100 text-blue-600">&#x1F9EE;</div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-slate-900">Blazor Templates & Models</h3>
+                                <p class="mt-1 text-slate-600">Explore the core architectures: Blazor Server, WebAssembly, and the newer Blazor United model.</p>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="https://learndotnetwithraushan.blogspot.com/2025/06/2-introduction-to-blazor-application.html" target="_blank" rel="noopener noreferrer" class="card block p-6">
+                         <div class="flex items-start space-x-4">
+                            <div class="card-icon bg-blue-100 text-blue-600">&#x1F4C1;</div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-slate-900">Intro to the Application</h3>
+                                <p class="mt-1 text-slate-600">A practical look at the structure of a Blazor project, its files, and the startup process.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </section>
+            
+            <!-- Section 2: Exercises -->
+            <section id="exercises">
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl font-bold tracking-tight text-slate-900">
+                        2. Hands-on Exercises
+                    </h2>
+                     <p class="mt-4 text-md leading-7 text-slate-600 section-intro">
+                        Now it's time to put theory into practice. This section contains a series of guided exercises designed to build your skills incrementally. By completing these tasks, you'll gain confidence in creating components, managing state, handling user input, and debugging your applications—the essential skills for any Blazor developer.
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+                     <a href="https://learndotnetwithraushan.blogspot.com/2025/06/exercise-1-your-first-interactive.html" target="_blank" rel="noopener noreferrer" class="card block p-6">
+                         <div class="flex items-start space-x-4">
+                            <div class="card-icon bg-green-100 text-green-600">&#x1F4BB;</div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-slate-900">Ex 1: Interactive Counter</h3>
+                                <p class="mt-1 text-slate-600">Learn the basics of Blazor interactivity by building a simple counter component that responds to user clicks.</p>
+                            </div>
+                        </div>
+                    </a>
+                     <a href="https://learndotnetwithraushan.blogspot.com/2025/06/exercise-2-personalized-welcome-message.html" target="_blank" rel="noopener noreferrer" class="card block p-6">
+                         <div class="flex items-start space-x-4">
+                            <div class="card-icon bg-green-100 text-green-600">&#x1F44B;</div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-slate-900">Ex 2: Personalized Welcome</h3>
+                                <p class="mt-1 text-slate-600">Work with data binding and user input to create a dynamic welcome message based on what the user types.</p>
+                            </div>
+                        </div>
+                    </a>
+                     <a href="https://learndotnetwithraushan.blogspot.com/2025/06/exercise-3-simple-to-do-list-blazor.html" target="_blank" rel="noopener noreferrer" class="card block p-6">
+                         <div class="flex items-start space-x-4">
+                            <div class="card-icon bg-green-100 text-green-600">&#x2705;</div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-slate-900">Ex 3: Simple To-Do List</h3>
+                                <p class="mt-1 text-slate-600">Manage a collection of items. Learn to render lists of data and add new items to your application's state.</p>
+                            </div>
+                        </div>
+                    </a>
+                     <a href="https://learndotnetwithraushan.blogspot.com/2025/06/exercise-building-interactive-to-do.html" target="_blank" rel="noopener noreferrer" class="card block p-6">
+                         <div class="flex items-start space-x-4">
+                            <div class="card-icon bg-green-100 text-green-600">&#x1F5D1;&#xFE0F;</div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-slate-900">Ex 3.1: To-Do List CRUD</h3>
+                                <p class="mt-1 text-slate-600">Extend the To-Do list by adding crucial update and delete functionality, completing the core interactions.</p>
+                            </div>
+                        </div>
+                    </a>
+                     <a href="https://learndotnetwithraushan.blogspot.com/2025/06/exercise-4-debugging-detective.html" target="_blank" rel="noopener noreferrer" class="card block p-6">
+                         <div class="flex items-start space-x-4">
+                            <div class="card-icon bg-green-100 text-green-600">&#x1F50E;</div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-slate-900">Ex 4: Debugging Detective</h3>
+                                <p class="mt-1 text-slate-600">Learn essential debugging techniques in the browser's developer tools to find and fix common issues.</p>
+                            </div>
+                        </div>
+                    </a>
+                     <a href="https://learndotnetwithraushan.blogspot.com/2025/06/building-interactive-shopping-list-with.html" target="_blank" rel="noopener noreferrer" class="card block p-6">
+                         <div class="flex items-start space-x-4">
+                            <div class="card-icon bg-green-100 text-green-600">&#x1F6D2;</div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-slate-900">Full App: Shopping List</h3>
+                                <p class="mt-1 text-slate-600">Combine all your learned skills to build a more complete shopping list application, including debugging.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </section>
+            
+            <!-- Section 3: Story -->
+             <section id="story">
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl font-bold tracking-tight text-slate-900">
+                        3. The Blazor Story
+                    </h2>
+                     <p class="mt-4 text-md leading-7 text-slate-600 section-intro">
+                        To conclude your initial training, this section consolidates everything you've learned into a single, cohesive narrative. It tells the story of building a modern web application from a developer's perspective, reinforcing the concepts and showing how they connect in a real-world context. This helps solidify your understanding and prepares you for your own projects.
+                    </p>
+                </div>
+                <div class="max-w-2xl mx-auto">
+                    <a href="https://learndotnetwithraushan.blogspot.com/2025/06/story-blazor-journey-building-modern.html" target="_blank" rel="noopener noreferrer" class="card block p-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="card-icon bg-purple-100 text-purple-600">&#x1F4D6;</div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-slate-900">Building a Modern Web App</h3>
+                                <p class="mt-1 text-slate-600">Follow a narrative that ties together the entire Blazor development experience, from concept to deployment.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="text-center mt-20 pt-8 border-t border-slate-200">
+            <p class="text-sm text-slate-500">
+                Crafted to provide a clear and interactive learning path. Happy coding!
+            </p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
