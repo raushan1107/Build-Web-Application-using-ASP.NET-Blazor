@@ -7,8 +7,8 @@
     
     <!-- Placeholder Comments -->
     <!-- Chosen Palette: Calm Journey -->
-    <!-- Application Structure Plan: The SPA is designed as a vertical learning path, breaking the source list into three distinct, themed sections (Foundations, Exercises, Story). This journey-based structure, using interactive cards instead of a flat list, is more intuitive for a learning guide. It visually guides the user from theory to practice, enhancing comprehension and engagement. Each card is a self-contained unit with added context, making the path clear and user-friendly. -->
-    <!-- Visualization & Content Choices: Source Info: List of Blazor articles. -> Goal: Inform & Organize. -> Viz/Presentation: Interactive HTML/CSS cards in themed sections. -> Interaction: Cards have hover effects and contain the article title, a new summary for context, and a direct link. -> Justification: Cards provide better information hierarchy and context than a simple list of links. The visual separation of sections clarifies the learning flow. -> Library/Method: HTML and Tailwind CSS. -> CONFIRMATION: NO SVG/Mermaid. -->
+    <!-- Application Structure Plan: The SPA is designed as a vertical learning path, categorized into three distinct sections: "Foundations & Core Modules", "Hands-on Exercises", and "Blazor Stories & Unified Approach". This structured journey, using interactive cards, provides an intuitive flow from theoretical knowledge to practical application and conceptual understanding. Each card offers a concise title and descriptive summary, enriching the user's understanding and guiding their exploration effectively. The layout remains responsive to ensure optimal viewing across devices. -->
+    <!-- Visualization & Content Choices: Source Info: Expanded list of Blazor articles (modules, exercises, stories). -> Goal: Inform & Organize comprehensive learning path. -> Viz/Presentation: Interactive HTML/CSS cards within themed sections. -> Interaction: Cards feature hover effects, present a clear title, a newly crafted summary for context, and a direct link to the resource. -> Justification: The card-based system enhances information hierarchy, provides immediate context for each link, and improves visual scannability compared to a simple list. The distinct sections visually separate content types, guiding the user through logical learning phases. -> Library/Method: HTML and Tailwind CSS. -->
     <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -23,6 +23,7 @@
             border-radius: 0.75rem; /* rounded-xl */
             box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
             transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            border-bottom: 4px solid; /* Add a bottom border for color coding */
         }
         .card:hover {
             transform: translateY(-5px);
@@ -42,6 +43,10 @@
             margin-left: auto;
             margin-right: auto;
         }
+        /* Color themes for cards */
+        .card.foundation-card { border-color: #60a5fa; /* blue-400 */ }
+        .card.exercise-card { border-color: #34d399; /* emerald-400 */ }
+        .card.story-card { border-color: #a78bfa; /* violet-400 */ }
     </style>
 </head>
 <body class="text-slate-800">
@@ -60,18 +65,18 @@
 
         <main class="space-y-16">
 
-            <!-- Section 1: Foundation -->
-            <section id="foundation">
+            <!-- Section 1: Foundations & Core Modules -->
+            <section id="foundation-modules">
                 <div class="text-center mb-10">
                     <h2 class="text-3xl font-bold tracking-tight text-slate-900">
-                        1. Foundation & Evolution
+                        1. Blazor Fundamentals: Concepts & Structure
                     </h2>
                     <p class="mt-4 text-md leading-7 text-slate-600 section-intro">
-                        This section provides the essential theoretical background for your journey. You'll learn what Blazor is, how it fits into the .NET ecosystem by understanding its evolution, and the different hosting models available. Grasping these core concepts is the first step to building powerful web applications.
+                        This section lays the groundwork for your Blazor expertise. You'll delve into the core concepts, understand Blazor's evolution within the .NET ecosystem, explore different hosting models, and gain a solid grasp of project structure and fundamental components.
                     </p>
                 </div>
                 <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
-                    <a href="https://learndotnetwithraushan.blogspot.com/2025/06/blazor-building-web-apps-with-c.html" target="_blank" rel="noopener noreferrer" class="card block p-6">
+                    <a href="https://learndotnetwithraushan.blogspot.com/2025/06/blazor-building-web-apps-with-c.html" target="_blank" rel="noopener noreferrer" class="card block p-6 foundation-card">
                         <div class="flex items-start space-x-4">
                             <div class="card-icon bg-blue-100 text-blue-600">&#x1F4DA;</div>
                             <div>
@@ -80,7 +85,7 @@
                             </div>
                         </div>
                     </a>
-                    <a href="https://learndotnetwithraushan.blogspot.com/2025/06/evolution-of-aspnet-from-web-forms-to.html" target="_blank" rel="noopener noreferrer" class="card block p-6">
+                    <a href="https://learndotnetwithraushan.blogspot.com/2025/06/evolution-of-aspnet-from-web-forms-to.html" target="_blank" rel="noopener noreferrer" class="card block p-6 foundation-card">
                          <div class="flex items-start space-x-4">
                             <div class="card-icon bg-blue-100 text-blue-600">&#x1F321;&#xFE0F;</div>
                             <div>
@@ -89,7 +94,7 @@
                             </div>
                         </div>
                     </a>
-                    <a href="https://learndotnetwithraushan.blogspot.com/2025/06/blazor-server-vs-blazor-webassembly-vs.html" target="_blank" rel="noopener noreferrer" class="card block p-6">
+                    <a href="https://learndotnetwithraushan.blogspot.com/2025/06/blazor-server-vs-blazor-webassembly-vs.html" target="_blank" rel="noopener noreferrer" class="card block p-6 foundation-card">
                          <div class="flex items-start space-x-4">
                             <div class="card-icon bg-blue-100 text-blue-600">&#x1F9EE;</div>
                             <div>
@@ -98,30 +103,48 @@
                             </div>
                         </div>
                     </a>
-                    <a href="https://learndotnetwithraushan.blogspot.com/2025/06/2-introduction-to-blazor-application.html" target="_blank" rel="noopener noreferrer" class="card block p-6">
+                    <a href="https://learndotnetwithraushan.blogspot.com/2025/06/2-introduction-to-blazor-application.html" target="_blank" rel="noopener noreferrer" class="card block p-6 foundation-card">
                          <div class="flex items-start space-x-4">
                             <div class="card-icon bg-blue-100 text-blue-600">&#x1F4C1;</div>
                             <div>
-                                <h3 class="text-lg font-semibold text-slate-900">Intro to the Application</h3>
+                                <h3 class="text-lg font-semibold text-slate-900">Module 2: Intro to Blazor App</h3>
                                 <p class="mt-1 text-slate-600">A practical look at the structure of a Blazor project, its files, and the startup process.</p>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="https://learndotnetwithraushan.blogspot.com/2025/06/understanding-project-structure-and.html" target="_blank" rel="noopener noreferrer" class="card block p-6 foundation-card">
+                         <div class="flex items-start space-x-4">
+                            <div class="card-icon bg-blue-100 text-blue-600">&#x1F3F0;</div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-slate-900">Module 3: Blazor Project Structure</h3>
+                                <p class="mt-1 text-slate-600">Dive deeper into the file and directory organization of Blazor projects, understanding each component's role.</p>
+                            </div>
+                        </div>
+                    </a>
+                     <a href="https://learndotnetwithraushan.blogspot.com/2025/06/4-aspnet-core-blazor-fundamentals.html" target="_blank" rel="noopener noreferrer" class="card block p-6 foundation-card">
+                         <div class="flex items-start space-x-4">
+                            <div class="card-icon bg-blue-100 text-blue-600">&#x1F4BC;</div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-slate-900">Module 4: Blazor Fundamentals</h3>
+                                <p class="mt-1 text-slate-600">Master the essential building blocks of Blazor development, including components, routing, and data binding.</p>
                             </div>
                         </div>
                     </a>
                 </div>
             </section>
             
-            <!-- Section 2: Exercises -->
+            <!-- Section 2: Hands-on Exercises -->
             <section id="exercises">
                 <div class="text-center mb-10">
                     <h2 class="text-3xl font-bold tracking-tight text-slate-900">
                         2. Hands-on Exercises
                     </h2>
                      <p class="mt-4 text-md leading-7 text-slate-600 section-intro">
-                        Now it's time to put theory into practice. This section contains a series of guided exercises designed to build your skills incrementally. By completing these tasks, you'll gain confidence in creating components, managing state, handling user input, and debugging your applications—the essential skills for any Blazor developer.
+                        Time to build! This expanded section offers a series of practical exercises covering key Blazor features like interactivity, data management, routing, logging, dependency injection, and real-time communication with SignalR. Each exercise is designed to solidify your understanding through active coding.
                     </p>
                 </div>
                 <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
-                     <a href="https://learndotnetwithraushan.blogspot.com/2025/06/exercise-1-your-first-interactive.html" target="_blank" rel="noopener noreferrer" class="card block p-6">
+                     <a href="https://learndotnetwithraushan.blogspot.com/2025/06/exercise-1-your-first-interactive.html" target="_blank" rel="noopener noreferrer" class="card block p-6 exercise-card">
                          <div class="flex items-start space-x-4">
                             <div class="card-icon bg-green-100 text-green-600">&#x1F4BB;</div>
                             <div>
@@ -130,7 +153,7 @@
                             </div>
                         </div>
                     </a>
-                     <a href="https://learndotnetwithraushan.blogspot.com/2025/06/exercise-2-personalized-welcome-message.html" target="_blank" rel="noopener noreferrer" class="card block p-6">
+                     <a href="https://learndotnetwithraushan.blogspot.com/2025/06/exercise-2-personalized-welcome-message.html" target="_blank" rel="noopener noreferrer" class="card block p-6 exercise-card">
                          <div class="flex items-start space-x-4">
                             <div class="card-icon bg-green-100 text-green-600">&#x1F44B;</div>
                             <div>
@@ -139,7 +162,7 @@
                             </div>
                         </div>
                     </a>
-                     <a href="https://learndotnetwithraushan.blogspot.com/2025/06/exercise-3-simple-to-do-list-blazor.html" target="_blank" rel="noopener noreferrer" class="card block p-6">
+                     <a href="https://learndotnetwithraushan.blogspot.com/2025/06/exercise-3-simple-to-do-list-blazor.html" target="_blank" rel="noopener noreferrer" class="card block p-6 exercise-card">
                          <div class="flex items-start space-x-4">
                             <div class="card-icon bg-green-100 text-green-600">&#x2705;</div>
                             <div>
@@ -148,7 +171,7 @@
                             </div>
                         </div>
                     </a>
-                     <a href="https://learndotnetwithraushan.blogspot.com/2025/06/exercise-building-interactive-to-do.html" target="_blank" rel="noopener noreferrer" class="card block p-6">
+                     <a href="https://learndotnetwithraushan.blogspot.com/2025/06/exercise-building-interactive-to-do.html" target="_blank" rel="noopener noreferrer" class="card block p-6 exercise-card">
                          <div class="flex items-start space-x-4">
                             <div class="card-icon bg-green-100 text-green-600">&#x1F5D1;&#xFE0F;</div>
                             <div>
@@ -157,7 +180,7 @@
                             </div>
                         </div>
                     </a>
-                     <a href="https://learndotnetwithraushan.blogspot.com/2025/06/exercise-4-debugging-detective.html" target="_blank" rel="noopener noreferrer" class="card block p-6">
+                     <a href="https://learndotnetwithraushan.blogspot.com/2025/06/exercise-4-debugging-detective.html" target="_blank" rel="noopener noreferrer" class="card block p-6 exercise-card">
                          <div class="flex items-start space-x-4">
                             <div class="card-icon bg-green-100 text-green-600">&#x1F50E;</div>
                             <div>
@@ -166,7 +189,7 @@
                             </div>
                         </div>
                     </a>
-                     <a href="https://learndotnetwithraushan.blogspot.com/2025/06/building-interactive-shopping-list-with.html" target="_blank" rel="noopener noreferrer" class="card block p-6">
+                     <a href="https://learndotnetwithraushan.blogspot.com/2025/06/building-interactive-shopping-list-with.html" target="_blank" rel="noopener noreferrer" class="card block p-6 exercise-card">
                          <div class="flex items-start space-x-4">
                             <div class="card-icon bg-green-100 text-green-600">&#x1F6D2;</div>
                             <div>
@@ -175,26 +198,116 @@
                             </div>
                         </div>
                     </a>
+                    <a href="https://learndotnetwithraushan.blogspot.com/2025/06/exercise-aspnet-core-blazor-logging.html" target="_blank" rel="noopener noreferrer" class="card block p-6 exercise-card">
+                         <div class="flex items-start space-x-4">
+                            <div class="card-icon bg-green-100 text-green-600">&#x1F4DD;</div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-slate-900">Exercise: Logging Basics</h3>
+                                <p class="mt-1 text-slate-600">Understand how to implement logging in ASP.NET Core Blazor applications for monitoring and debugging.</p>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="https://learndotnetwithraushan.blogspot.com/2025/06/blazor-logging-tracking-application.html" target="_blank" rel="noopener noreferrer" class="card block p-6 exercise-card">
+                         <div class="flex items-start space-x-4">
+                            <div class="card-icon bg-green-100 text-green-600">&#x1F50D;</div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-slate-900">Practice: Application Tracking (Logging)</h3>
+                                <p class="mt-1 text-slate-600">A deeper dive into logging to track application behavior and diagnose issues effectively.</p>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="https://learndotnetwithraushan.blogspot.com/2025/06/exercise-blazor-routing-navigation.html" target="_blank" rel="noopener noreferrer" class="card block p-6 exercise-card">
+                         <div class="flex items-start space-x-4">
+                            <div class="card-icon bg-green-100 text-green-600">&#x1F6A6;</div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-slate-900">Exercise: Routing & Navigation</h3>
+                                <p class="mt-1 text-slate-600">Learn to define routes and navigate between different pages in your Blazor application.</p>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="https://learndotnetwithraushan.blogspot.com/2025/06/dependency-injection-di-centralized.html" target="_blank" rel="noopener noreferrer" class="card block p-6 exercise-card">
+                         <div class="flex items-start space-x-4">
+                            <div class="card-icon bg-green-100 text-green-600">&#x2699;&#xFE0F;</div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-slate-900">Exercise: Dependency Injection</h3>
+                                <p class="mt-1 text-slate-600">Explore how to use Dependency Injection to manage services and components efficiently in Blazor.</p>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="https://learndotnetwithraushan.blogspot.com/2025/06/exercise-aspnet-core-blazor-dependency.html" target="_blank" rel="noopener noreferrer" class="card block p-6 exercise-card">
+                         <div class="flex items-start space-x-4">
+                            <div class="card-icon bg-green-100 text-green-600">&#x1F50C;</div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-slate-900">Practice: Dependency Injection</h3>
+                                <p class="mt-1 text-slate-600">A practical exercise reinforcing the concepts of Dependency Injection in ASP.NET Core Blazor.</p>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="https://learndotnetwithraushan.blogspot.com/2025/06/exercise-split-razor-component-partial.html" target="_blank" rel="noopener noreferrer" class="card block p-6 exercise-card">
+                         <div class="flex items-start space-x-4">
+                            <div class="card-icon bg-green-100 text-green-600">&#x1F5BC;&#xFE0F;</div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-slate-900">Exercise: Split Razor Component</h3>
+                                <p class="mt-1 text-slate-600">Learn to modularize your Blazor components using partial classes or separate code-behind files.</p>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="https://learndotnetwithraushan.blogspot.com/2025/06/exercise-shared-live-counter.html" target="_blank" rel="noopener noreferrer" class="card block p-6 exercise-card">
+                         <div class="flex items-start space-x-4">
+                            <div class="card-icon bg-green-100 text-green-600">&#x1F504;</div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-slate-900">Exercise: Shared Live Counter</h3>
+                                <p class="mt-1 text-slate-600">Build a counter that updates in real-time across multiple components, demonstrating shared state.</p>
+                            </div>
+                        </div>
+                    </a>
+                     <a href="https://learndotnetwithraushan.blogspot.com/2025/06/signalr-real-time-message-broadcast.html" target="_blank" rel="noopener noreferrer" class="card block p-6 exercise-card">
+                         <div class="flex items-start space-x-4">
+                            <div class="card-icon bg-green-100 text-green-600">&#x1F4E1;</div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-slate-900">Exercise: SignalR Basics</h3>
+                                <p class="mt-1 text-slate-600">A foundational exercise demonstrating real-time message broadcasting using SignalR in Blazor.</p>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="https://learndotnetwithraushan.blogspot.com/2025/06/real-time-order-status-tracker-signalr.html" target="_blank" rel="noopener noreferrer" class="card block p-6 exercise-card">
+                         <div class="flex items-start space-x-4">
+                            <div class="card-icon bg-green-100 text-green-600">&#x1F4C5;</div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-slate-900">Final Ex: Real-Time Order Status</h3>
+                                <p class="mt-1 text-slate-600">A comprehensive exercise building a real-time order status tracker using Blazor and SignalR.</p>
+                            </div>
+                        </div>
+                    </a>
                 </div>
             </section>
             
-            <!-- Section 3: Story -->
-             <section id="story">
+            <!-- Section 3: Blazor Stories & Unified Approach -->
+             <section id="stories">
                 <div class="text-center mb-10">
                     <h2 class="text-3xl font-bold tracking-tight text-slate-900">
-                        3. The Blazor Story
+                        3. Blazor Stories & Unified Approach
                     </h2>
                      <p class="mt-4 text-md leading-7 text-slate-600 section-intro">
-                        To conclude your initial training, this section consolidates everything you've learned into a single, cohesive narrative. It tells the story of building a modern web application from a developer's perspective, reinforcing the concepts and showing how they connect in a real-world context. This helps solidify your understanding and prepares you for your own projects.
+                        These narratives consolidate your learning, presenting the Blazor development experience through real-world scenarios. Discover how a unified approach to web development with Blazor can simplify your workflow and enhance your application's capabilities.
                     </p>
                 </div>
-                <div class="max-w-2xl mx-auto">
-                    <a href="https://learndotnetwithraushan.blogspot.com/2025/06/story-blazor-journey-building-modern.html" target="_blank" rel="noopener noreferrer" class="card block p-6">
+                <div class="max-w-2xl mx-auto grid grid-cols-1 gap-6">
+                    <a href="https://learndotnetwithraushan.blogspot.com/2025/06/story-blazor-journey-building-modern.html" target="_blank" rel="noopener noreferrer" class="card block p-6 story-card">
                         <div class="flex items-start space-x-4">
                             <div class="card-icon bg-purple-100 text-purple-600">&#x1F4D6;</div>
                             <div>
                                 <h3 class="text-lg font-semibold text-slate-900">Building a Modern Web App</h3>
                                 <p class="mt-1 text-slate-600">Follow a narrative that ties together the entire Blazor development experience, from concept to deployment.</p>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="https://learndotnetwithraushan.blogspot.com/2025/06/blazor-unified-approach-to-web.html" target="_blank" rel="noopener noreferrer" class="card block p-6 story-card">
+                        <div class="flex items-start space-x-4">
+                            <div class="card-icon bg-purple-100 text-purple-600">&#x1F522;</div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-slate-900">Blazor Unified Approach Story</h3>
+                                <p class="mt-1 text-slate-600">A story illustrating the power and simplicity of Blazor's unified approach to web development.</p>
                             </div>
                         </div>
                     </a>
