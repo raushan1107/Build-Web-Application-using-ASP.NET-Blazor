@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,8 +7,8 @@
     
     <!-- Placeholder Comments -->
     <!-- Chosen Palette: Calm Journey -->
-    <!-- Application Structure Plan: The SPA is designed as a vertical learning path, categorized into three distinct sections: "Foundations & Core Modules", "Hands-on Exercises", and "Blazor Stories & Unified Approach". This structured journey, using interactive cards, provides an intuitive flow from theoretical knowledge to practical application and conceptual understanding. Each card offers a concise title and descriptive summary, enriching the user's understanding and guiding their exploration effectively. The layout remains responsive to ensure optimal viewing across devices. -->
-    <!-- Visualization & Content Choices: Source Info: Expanded list of Blazor articles (modules, exercises, stories). -> Goal: Inform & Organize comprehensive learning path. -> Viz/Presentation: Interactive HTML/CSS cards within themed sections. -> Interaction: Cards feature hover effects, present a clear title, a newly crafted summary for context, and a direct link to the resource. -> Justification: The card-based system enhances information hierarchy, provides immediate context for each link, and improves visual scannability compared to a simple list. The distinct sections visually separate content types, guiding the user through logical learning phases. -> Library/Method: HTML and Tailwind CSS. -->
+    <!-- Application Structure Plan: The SPA is designed as a vertical learning path, categorized into three distinct sections: "Foundations & Core Modules", "Hands-on Exercises", and "Blazor Stories & Unified Approach". This structured journey, using interactive cards, provides an intuitive flow from theoretical knowledge to practical application and conceptual understanding. Each card offers a concise title and descriptive summary, enriching the user's understanding and guiding their exploration effectively. The layout remains responsive to ensure optimal viewing across devices. The addition of a fixed navigation bar in the header, with smooth scrolling links to each major section, significantly enhances user navigation and overall usability. -->
+    <!-- Visualization & Content Choices: Source Info: Expanded list of Blazor articles (modules, exercises, stories). -> Goal: Inform & Organize comprehensive learning path. -> Viz/Presentation: Interactive HTML/CSS cards within themed sections. -> Interaction: Cards feature hover effects, present a clear title, a newly crafted summary for context, and a direct link to the resource. A fixed navigation bar now provides direct, smooth-scrolling links to each major section. -> Justification: The card-based system enhances information hierarchy, provides immediate context for each link, and improves visual scannability. Distinct sections visually separate content types. The fixed navigation bar greatly improves user experience by allowing quick jumps between content areas without needing to scroll extensively. -->
     <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -17,6 +17,7 @@
         body {
             font-family: 'Inter', sans-serif;
             background-color: #f8fafc; /* slate-50 */
+            scroll-padding-top: 5rem; /* Space for fixed header/nav */
         }
         .card {
             background-color: white;
@@ -51,9 +52,21 @@
 </head>
 <body class="text-slate-800">
 
-    <div class="mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8">
+    <!-- Fixed Navigation Bar -->
+    <nav class="fixed top-0 left-0 right-0 bg-white shadow-md z-50 py-4 px-8">
+        <div class="max-w-5xl mx-auto flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-blue-600 hover:text-blue-700 transition duration-200">RR Education: The Blazor Developer's Path</a>
+            <div class="space-x-6">
+                <a href="#foundation-modules" class="text-slate-700 hover:text-blue-600 font-medium transition duration-200">Foundations</a>
+                <a href="#exercises" class="text-slate-700 hover:text-blue-600 font-medium transition duration-200">Exercises</a>
+                <a href="#stories" class="text-slate-700 hover:text-blue-600 font-medium transition duration-200">Stories</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8 mt-16">
         
-        <!-- Header -->
+        <!-- Header (Main Title and Introduction) -->
         <header class="text-center mb-16">
             <h1 class="text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">
                 Your Blazor Learning Journey
@@ -318,12 +331,37 @@
 
         <!-- Footer -->
         <footer class="text-center mt-20 pt-8 border-t border-slate-200">
+            <p class="text-sm text-slate-500 mb-4">
+                Crafted with <span class="text-red-500">&#x2764;&#xFE0F;</span> by <strong class="text-slate-700">Raushan Ranjan</strong>
+            </p>
+            <div class="flex justify-center space-x-4 mb-4 text-slate-600">
+                <a href="https://www.instagram.com/raushanranjan_" target="_blank" rel="noopener noreferrer" class="hover:text-pink-600 transition duration-200">Instagram</a>
+                <span class="text-slate-400">|</span>
+                <a href="https://www.blogger.com/profile/06376581913730716184" target="_blank" rel="noopener noreferrer" class="hover:text-blue-600 transition duration-200">Blogs</a>
+                <span class="text-slate-400">|</span>
+                <a href="https://www.youtube.com/@rr.education" target="_blank" rel="noopener noreferrer" class="hover:text-red-600 transition duration-200">YouTube</a>
+                <span class="text-slate-400">|</span>
+                <a href="https://www.linkedin.com/in/raushanranjan/" target="_blank" rel="noopener noreferrer" class="hover:text-blue-700 transition duration-200">LinkedIn</a>
+                <span class="text-slate-400">|</span>
+                <a href="https://github.com/raushan1107" target="_blank" rel="noopener noreferrer" class="hover:text-slate-900 transition duration-200">GitHub</a>
+            </div>
             <p class="text-sm text-slate-500">
-                Crafted to provide a clear and interactive learning path. Happy coding!
+                Visit my full portfolio: <a href="http://raushanranjan.azurewebsites.net/" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline transition duration-200">YourPortfolioSite.com</a>
             </p>
         </footer>
 
     </div>
 
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
